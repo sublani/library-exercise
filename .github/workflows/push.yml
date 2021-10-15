@@ -66,5 +66,7 @@ jobs:
         uses: actions/checkout@v2
         
       - name: Build docker
-        run: docker build -t api:0.1.0 . 
-
+        run: make docker_up
+      
+      - name: Test app
+        run: curl --fail http://localhost:8080/api/
