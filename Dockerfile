@@ -7,10 +7,12 @@ WORKDIR /go/src/api
 
 COPY . .
 
-RUN GOOS=linux GOARCH=amd64 go build -o /go/bin/api cmd/geekshubs-library/main.go
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o /go/bin/api cmd/geekshubs-library/main.go
 
 FROM alpine:latest
 
 COPY --from=build /go/bin/api /go/bin/api
+
+RUN chmod +x /go/bin/api
 
 ENTRYPOINT ["go/bin/api"]

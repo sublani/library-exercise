@@ -18,15 +18,13 @@ lint:
 
 build:
 	# MacOS
-	cd cmd/geekshubs-library && GOOS=darwin GOARCH=amd64 go build -o ../../bin/main-darwin-amd64 main.go
+	# cd cmd/geekshubs-library && GOOS=darwin GOARCH=amd64 go build -o ../../bin/main-darwin-amd64 main.go
 	# Linux
 	cd cmd/geekshubs-library && GOOS=linux GOARCH=amd64 go build -o ../../bin/main-linux-amd64 main.go
 	# Windows
-	cd cmd/geekshubs-library && GOOS=windows GOARCH=amd64 go build -o ../../bin/main-windows-amd64 main.go
+	# cd cmd/geekshubs-library && GOOS=windows GOARCH=amd64 go build -o ../../bin/main-windows-amd64 main.go
 
 docker_up:
 	docker build -t api:0.1.0 . 
-	docker-compose -f docker/docker-compose.db.yml up -d
+	docker-compose -f docker/docker-compose.api.yml up -d
 	sleep 20 
-	docker-compose -f docker/docker-compose.app.yml up -d
-	sleep 20
