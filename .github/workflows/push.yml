@@ -17,11 +17,9 @@ jobs:
 
       - name: Check out code
         uses: actions/checkout@v1
-      
-      - run: go version
 
       - name: Lint Go Code
-        run: make lint
+        run: apt install golint -y; make lint
       
   test:
     name: Test
