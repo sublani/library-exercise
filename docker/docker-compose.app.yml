@@ -1,4 +1,4 @@
-version: '3.1'
+version: '3.8'
 services:
   app:
     image: api:0.1.0
