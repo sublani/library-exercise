@@ -9,11 +9,3 @@ services:
       - MYSQL_ROOT_PASSWORD=password
     volumes:
       - ../mysql-dump:/docker-entrypoint-initdb.d
-  
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 7001:8080
-    depends_on:
-      - mysql

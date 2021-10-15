@@ -29,3 +29,4 @@ docker_up:
 	docker-compose -f docker/docker-compose.db.yml up -d
 	sleep 20 
 	docker-compose -f docker/docker-compose.app.yml up -d
+	sleep 20
